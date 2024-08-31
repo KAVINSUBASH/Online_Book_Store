@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+        <script>
+            window.onload = function() {
+                var message = "{{ message }}";
+                if (message) {
+                    alert(message);
+                }
+            };
+            function setAction(actionValue) {
+        document.getElementById('action').value = actionValue;
+    }
+        </script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(
+                'https://images.unsplash.com/photo-1519327232521-1ea2c736d34d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+        .container {
+            padding: 16px;
+        }
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+        .card {
+            max-width: 100%;
+            width: 500px;
+            margin-top: 100px;
+            margin-left: 550px;
+            margin-bottom: 120px;
+            border-radius: 50px;
+        }
+        h2 {
+            margin-left: 150px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+        a {
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        input {
+            border-radius: 20px;
+            border-color: black;
+        }
+        button {
+            border-radius: 20px;
+        }
+        button:hover {
+            background-color: red;
+        }
+        h2 {
+            font-family: 'Times New Roman', Times, serif;
+            margin-left: 165px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Login Form</h2>
+        <form method="post" action="{{ url_for('loginpage') }}" id="loginForm">
+            <div class="imgcontainer">
+                <img src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=626&ext=jpg&ga=GA1.1.220306657.1705637144&semt=ais"
+                    alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname">
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw">
+                <input type="hidden" id="action" name="action" value="">
+                <input type="hidden" id="action" name="action" value="">
+                <button type="submit" onclick="setAction('login')">Login</button>
+                <button type="submit" onclick="setAction('signup')">Sign Up</button>
+
+            </div>
+        </form>
+    </div>
+</body>
+</html>

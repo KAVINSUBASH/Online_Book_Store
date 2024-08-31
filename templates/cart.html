@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ADD TO CARD</title>
+
+
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image:url('https://img.freepik.com/free-vector/blank-blue-leafy-poster_53876-99945.jpg?w=996&t=st=1705659501~exp=1705660101~hmac=878fe3d9b1c9d0cfdc4cf4b167e20302ba9d45217332cbc6bf56095db43611ef');
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li:hover {
+            background-color: #f8f8f8;
+        }
+
+        .card{
+            width: 800px;
+            max-width: 100%;
+            justify-content: center;
+            align-items: center;
+            margin-left: 350px;
+            margin-top: 100px;
+            
+            
+        }
+
+        button {
+         background-color: #04AA6D;
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 200px;
+        
+      }
+      button a{
+       border-radius: 20px;
+       text-decoration: none;
+       color: black;
+     }
+     button:hover{
+     background-color: red;
+      }
+
+
+button:hover {
+  opacity: 0.8;
+}
+    </style>
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class="card">
+        
+    
+    <h1>Shopping Cart</h1>
+    <ul id="cartItems"></ul>
+
+    <button onclick="alert('Click OK for Payment Page')"><a href="{{ url_for('payment') }}">Make Payment</a></button>
+</div>
+
+    <script>
+        
+        const cart = localStorage.getItem("cart");
+
+        
+        if (cart) {
+            
+            const cartArray = JSON.parse(cart);
+
+            
+            const cartItemsList = document.getElementById("cartItems");
+
+            
+            cartArray.forEach((item) => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                cartItemsList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+
+</html>

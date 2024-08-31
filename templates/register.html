@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        background-image: url('https://images.unsplash.com/photo-1519327232521-1ea2c736d34d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type=text],
+    input[type=password] {
+        width: calc(100% - 30px);
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+        box-sizing: border-box;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    button:hover {
+        opacity: 1;
+    }
+
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: #f44336;
+    }
+
+    .cancelbtn,
+    .signupbtn {
+        float: left;
+        width: 50%;
+    }
+
+    .container {
+        padding: 16px;
+        background-image: url('https://images.unsplash.com/photo-1555181937-efe4e074a301?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    @media screen and (max-width: 300px) {
+        .cancelbtn,
+        .signupbtn {
+            width: 100%;
+        }
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        width: 600px;
+        margin-left: 500px;
+        margin-top: 130px;
+        background-image: url('https://images.unsplash.com/photo-1638864616275-9f0b291a2eb6?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    }
+
+    h1 {
+        margin-left: 230px;
+        font-family: 'Times New Roman', Times, serif;
+        margin-bottom: 20px;
+    }
+
+    input {
+        border-radius: 50px;
+    }
+
+    button {
+        border-radius: 50px;
+    }
+</style>
+
+<script>
+    function setAction(actionValue) {
+    document.getElementById('action').value = actionValue;
+}
+</script>
+</head>
+<body>
+    <div class="form-container">
+        <form method="post" style="border:1px solid #ccc" action="{{ url_for('register') }}">
+            <div class="container">
+                <h1>Sign Up</h1>
+
+                <hr>
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+
+
+                <input type="hidden" name="action" id="action" value="">
+
+                <div class="clearfix">
+                <button type="submit" onclick="setAction('login')">Cancel</button>
+                <button type="submit" onclick="setAction('signup')">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
